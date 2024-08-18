@@ -2,9 +2,9 @@
 all: help
 
 help:
-	@echo "<project-name> Makefile commands"
+	@echo "RackerRank Solved Makefile commands"
 	@echo ""
-	@echo "build                 Executes the build of all images required to run <project-name> API"
+	@echo "build                 Executes the build of all images required to run RackerRank Solved API"
 	@echo "down                  Stops all docker containers"
 	@echo "run                   Start all containers and keep attached"
 	@echo "run_local             Run application in the current terminal"
@@ -48,8 +48,8 @@ hooks:
 	@chmod -R +x .git/hooks/pre-push
 
 test:
-	@docker-compose build --force-rm <project-name>
-	@docker-compose run --rm <project-name> /commands/run_test.sh
+	@docker-compose build --force-rm rackerrank-solved
+	@docker-compose run --rm rackerrank-solved /commands/run_test.sh
 
 cleanup:
 	@find . -type d -name mocks -exec rm -rf {} \;
@@ -64,7 +64,7 @@ test_up: down
 	@docker-compose up -d
 
 test_run:
-	@docker-compose exec <project-name> /commands/test.sh
+	@docker-compose exec rackerrank-solved /commands/test.sh
 
 .PHONY:
 specs_generate:
